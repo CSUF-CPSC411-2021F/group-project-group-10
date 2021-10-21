@@ -1,7 +1,5 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -43,7 +41,7 @@ class LoginFragment : Fragment() {
         // Navigates to the register fragment if register textView is clicked.
         binding.register.setOnClickListener { view: View ->
             view.findNavController()
-                .navigate(loginDirections
+                .navigate(LoginFragmentDirections
                     .actionLoginToRegisterFragment())
         }
 
@@ -61,7 +59,7 @@ class LoginFragment : Fragment() {
                     if(task.isSuccessful) {
                         Toast.makeText(context, "Login successful!", Toast.LENGTH_LONG).show()
                         requireView().findNavController()
-                            .navigate(loginDirections
+                            .navigate(LoginFragmentDirections
                                 .actionLoginToMenuFragment())
                     }else{
                         Toast.makeText(context, "Incorrect credentials.", Toast.LENGTH_LONG).show()

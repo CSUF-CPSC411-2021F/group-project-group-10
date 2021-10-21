@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.myapplication.databinding.FragmentMenuBinding
+import com.example.myapplication.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
 
@@ -18,6 +20,9 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_register, container, false)
+
+        val binding = FragmentRegisterBinding.inflate(layoutInflater)
+
+        return binding.root
     }
 }

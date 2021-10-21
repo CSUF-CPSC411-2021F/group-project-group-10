@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/login"
-        android:name="com.example.myapplication.login"
+        android:name="com.example.myapplication.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
