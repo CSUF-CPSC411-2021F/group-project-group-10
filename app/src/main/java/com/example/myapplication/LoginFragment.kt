@@ -14,7 +14,7 @@ import com.example.myapplication.databinding.FragmentLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
-class login : Fragment() {
+class LoginFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
