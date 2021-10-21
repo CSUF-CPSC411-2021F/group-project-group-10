@@ -6,6 +6,12 @@ plugins {
 android {
     compileSdk 31
 
+    // Required to enable data/view binding
+    buildFeatures {
+        viewBinding = true
+    }
+
+
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 19
