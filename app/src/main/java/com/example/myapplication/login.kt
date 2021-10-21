@@ -32,13 +32,15 @@ class login : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentLoginBinding.inflate(layoutInflater)
 
-        binding.username.setText("requin@csu.fullerton.edu")
-        binding.password.setText("VegasBaby")
+        binding.userLogin.setOnClickListener {
 
-        var user_email: String = binding.username.text.toString()
-        var user_password: String = binding.password.text.toString()
+            var user_email: String = binding.username.text.toString()
+            var user_password: String = binding.password.text.toString()
 
-        binding.userLogin.setOnClickListener { authenticateLogin(user_email, user_password) }
+            authenticateLogin(user_email, user_password)
+        }
+
+        // Navigates to the register fragment if register textView is clicked.
         binding.register.setOnClickListener { view: View ->
             view.findNavController()
                 .navigate(loginDirections
@@ -58,11 +60,9 @@ class login : Fragment() {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
                     if(task.isSuccessful) {
                         Toast.makeText(context, "Login successful!", Toast.LENGTH_LONG).show()
-                        val intent = Intent(context, MainActivity::class.java)
-                        startActivity(intent)
-                        /*requireView().findNavController()
+                        requireView().findNavController()
                             .navigate(loginDirections
-                                .actionLoginToRegisterFragment())*/
+                                .actionLoginToMenuFragment())
                     }else{
                         Toast.makeText(context, "Incorrect credentials.", Toast.LENGTH_LONG).show()
 
