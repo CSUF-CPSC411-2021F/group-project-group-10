@@ -44,21 +44,23 @@ class SetDisplayNameFragment : Fragment() {
 
         if(TextUtils.isEmpty(name)) {
             Toast.makeText(context,"Input a moniker, please.", Toast.LENGTH_LONG).show()
+        } else {
+            // Value to store the changed data for display name.
+            val updateInfo = userProfileChangeRequest {
+                displayName = name
+            }
+
+            // Function call to facilitate the info change.
+            auth.currentUser?.updateProfile(updateInfo)
+
+            // Signs the user out.
+            auth.signOut()
+
+            requireView().findNavController()
+                .navigate(
+                    SetDisplayNameFragmentDirections
+                        .actionSetDisplayNameFragmentToLogin()
+                )
         }
-
-        // Value to store the changed data for display name.
-        val updateInfo = userProfileChangeRequest {
-            displayName = name
-        }
-
-        // Function call to facilitate the info change.
-        auth.currentUser?.updateProfile(updateInfo)
-
-        // Signs the user out.
-        auth.signOut()
-
-        requireView().findNavController()
-            .navigate(SetDisplayNameFragmentDirections
-                .actionSetDisplayNameFragmentToLogin())
     }
 }
