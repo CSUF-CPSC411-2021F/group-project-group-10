@@ -1,10 +1,12 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.myapplication.databinding.FragmentSetDisplayNameBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +41,10 @@ class SetDisplayNameFragment : Fragment() {
     }
 
     private fun setDisplayName(name: String) {
+
+        if(TextUtils.isEmpty(name)) {
+            Toast.makeText(context,"Input a moniker, please.", Toast.LENGTH_LONG).show()
+        }
 
         // Value to store the changed data for display name.
         val updateInfo = userProfileChangeRequest {
