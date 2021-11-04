@@ -1,33 +1,49 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.databinding.ActivityMainBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class MainActivity : AppCompatActivity(), RecipeListAdapter.onItemClickListener {
+    private val dataset = generateList(20)
+    private val adapter = RecipeListAdapter(dataset, this)
+
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main)
 
-        setContentView(binding.root)
-
-        val recipeListAdapter = RecipeListAdapter(this)
-        binding.recyclerView.adapter = recipeListAdapter
-
-        binding.addRecipe.setOnClickListener {
-            val toast = Toast.makeText(
-                this,
-                "Adding ${binding.recipeName.text}",
-                Toast.LENGTH_SHORT
-            )
-            toast.show()
-
-            recipeListAdapter.dataset.add("${binding.recipeName.text}")
-
-            recipeListAdapter.notifyDataSetChanged()
-
-            binding.recipeName.text.clear()
-        }
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
     }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(
+            this,
+            "Recipe $position was clicked",
+            Toast.LENGTH_SHORT).show()
+        val clickedItem: Recipe = dataset[position]
+        val intent = Intent(this, RecipeInfo::class.java)
+        intent.putExtra("Name", clickedItem.rName)
+        intent.putExtra("Ingredients", clickedItem.ingredients)
+        intent.putExtra("Steps", clickedItem.steps)
+        startActivity(intent)
+        clickedItem.rName = "Clicked"
+        adapter.notifyItemChanged(position)
+    }
+
+    private fun generateList(size: Int): MutableList<Recipe>{
+        val list = mutableListOf<Recipe>()
+
+        for(i in 0 until size){
+            val item = Recipe("Recipe $i", "Ingredient List $i", "Steps for Recipe $i")
+            list += item
+        }
+        return list
+    }
+
 }

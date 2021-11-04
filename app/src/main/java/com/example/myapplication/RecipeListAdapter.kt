@@ -1,34 +1,58 @@
 package com.example.myapplication
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecipeListAdapter (
-    private val context: Context,
-    var dataset: MutableList<String> = mutableListOf<String>()
-) : RecyclerView.Adapter<RecipeListAdapter.ItemViewHolder>() {
+class RecipeListAdapter(
+    private var dataset: MutableList<Recipe>,
+    private val listener: onItemClickListener
+) :
+    RecyclerView.Adapter<RecipeListAdapter.ItemViewHolder>() {
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val recipeItemName: TextView = view.findViewById(R.id.recipeItemName)
-        //val position: TextView = view.findViewById(R.id.position)
+    inner class ItemViewHolder (itemView: View): RecyclerView.ViewHolder(itemView),
+    View.OnClickListener{
+        val recipe_name: TextView = itemView.findViewById(R.id.recipeName)
+        val rIngredients: TextView = itemView.findViewById(R.id.ingredients)
+        val recipe_steps: TextView = itemView.findViewById(R.id.steps)
+
+        init{
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if(position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recipe_list, parent, false)
+            .inflate(R.layout.recipe_list_item, parent, false)
 
         return ItemViewHolder(adapterLayout)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.recipeItemName.text = item
+        val currentItem = dataset[position]
+
+        holder.recipe_name.text = currentItem.rName
+        holder.rIngredients.text = currentItem.ingredients
+        holder.recipe_steps.text = currentItem.steps
     }
 
-    override fun getItemCount(): Int = dataset.size
+    override fun getItemCount() = dataset.size
+
+    class SleepNightListener(val clickListener: (rName: String) -> Unit){
+        fun onClick(recipe: Recipe) = clickListener(recipe.rName)
+    }
 
 }
