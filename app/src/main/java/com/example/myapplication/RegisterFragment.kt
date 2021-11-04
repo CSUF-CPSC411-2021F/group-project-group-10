@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
-import com.example.myapplication.databinding.FragmentMenuBinding
 import com.example.myapplication.databinding.FragmentRegisterBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -44,6 +43,8 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
+    // Logic adopted and modified from https://gist.github.com/mishra3452/1dda2f91840a9b349dd79c7c4d05b1f0
+    // Attempts to register a user.
     private fun authenticateRegister(email_reg: String, password_reg: String) {
 
         // Input validation to ensure data is obtained from both fields.
