@@ -31,7 +31,11 @@
         android:id="@+id/registerFragment"
         android:name="com.example.myapplication.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.myapplication.MenuFragment"

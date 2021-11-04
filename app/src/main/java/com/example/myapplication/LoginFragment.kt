@@ -30,6 +30,8 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentLoginBinding.inflate(layoutInflater)
 
+        // Attempts to log the user in by passing input
+        // values to the authenticateLogin(...) function.
         binding.userLogin.setOnClickListener {
 
             var user_email: String = binding.username.text.toString()
@@ -49,11 +51,15 @@ class LoginFragment : Fragment() {
     }
 
     // Logic adopted and modified from https://gist.github.com/mishra3452/1dda2f91840a9b349dd79c7c4d05b1f0
+    // Checks to see if the input credentials match a registered user in the Firebase.
     private fun authenticateLogin(email: String, password: String) {
 
+            // Input validation to ensure data is obtained from both fields.
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(context,"Fill out both fields to continue.", Toast.LENGTH_LONG).show()
             }
+             // If the input values match a registered user, they
+             // are signed in and transferred to the menu fragment.
              else{
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
                     if(task.isSuccessful) {
@@ -61,7 +67,10 @@ class LoginFragment : Fragment() {
                         requireView().findNavController()
                             .navigate(LoginFragmentDirections
                                 .actionLoginToMenuFragment())
-                    }else{
+                    }
+                    // Login was unsuccessful due to incorrect user input
+                    // or an unknown/deleted user registration.
+                    else{
                         Toast.makeText(context, "Incorrect credentials.", Toast.LENGTH_LONG).show()
 
                     }
