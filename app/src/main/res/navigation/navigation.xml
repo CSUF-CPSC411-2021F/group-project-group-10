@@ -33,12 +33,21 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment_to_login"
-            app:destination="@id/login" />
+            android:id="@+id/action_registerFragment_to_setDisplayNameFragment"
+            app:destination="@id/setDisplayNameFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.myapplication.MenuFragment"
         android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/setDisplayNameFragment"
+        android:name="com.example.myapplication.SetDisplayNameFragment"
+        android:label="fragment_set_display_name"
+        tools:layout="@layout/fragment_set_display_name" >
+        <action
+            android:id="@+id/action_setDisplayNameFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
 
 </navigation>
