@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import com.example.myapplication.databinding.FragmentRegisterBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterFragment : Fragment() {
 
@@ -36,8 +37,9 @@ class RegisterFragment : Fragment() {
 
             var user_email_reg: String = binding.emailReg.text.toString()
             var user_password_reg: String = binding.passwordReg.text.toString()
+            // var user_display_name: String = binding.displayName.text.toString()
 
-            authenticateRegister(user_email_reg, user_password_reg)
+            authenticateRegister(user_email_reg, user_password_reg, /*user_display_name*/)
         }
 
         return binding.root
@@ -45,7 +47,7 @@ class RegisterFragment : Fragment() {
 
     // Logic adopted and modified from https://gist.github.com/mishra3452/1dda2f91840a9b349dd79c7c4d05b1f0
     // Attempts to register a user.
-    private fun authenticateRegister(email_reg: String, password_reg: String) {
+    private fun authenticateRegister(email_reg: String, password_reg: String, /*display_name: String*/) {
 
         // Input validation to ensure data is obtained from both fields.
         if(TextUtils.isEmpty(email_reg) || TextUtils.isEmpty(password_reg)) {
@@ -59,6 +61,11 @@ class RegisterFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email_reg, password_reg).addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
                 if(task.isSuccessful) {
                     Toast.makeText(context, "Registration successful! Proceed to login.", Toast.LENGTH_LONG).show()
+
+                    // auth.signInWithEmailAndPassword(email_reg, password_reg)
+
+                    // auth.currentUser?.updateProfile()
+
                     requireView().findNavController()
                         .navigate(RegisterFragmentDirections
                             .actionRegisterFragmentToLogin())
