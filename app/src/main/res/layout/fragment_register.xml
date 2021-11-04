@@ -8,18 +8,74 @@
     >
 
     <TextView
-        android:id="@+id/register_rip"
+        android:id="@+id/title_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here lies the Register Fragment"
+        android:text="Registration"
         android:textColor="@color/hallow"
+        android:textSize="40sp"
         android:fontFamily="@font/lobster"
-        android:padding="30dp"
-        android:textSize="50dp"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <EditText
+        android:id="@+id/email_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:autofillHints="@string/email"
+        android:hint="@string/email"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/title_reg"
+        app:layout_constraintTop_toBottomOf="@id/title_reg"
+        />
+
+    <EditText
+        android:id="@+id/password_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:autofillHints="@string/password"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/email_reg"
+        app:layout_constraintTop_toBottomOf="@id/email_reg"
+        />
+
+    <Button
+        android:id="@+id/user_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Create Account"
+        android:textColor="#212121"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_reg"
+        />
+
+    <ImageView
+        android:id="@+id/app_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/app_reg"
+        app:layout_constraintBottom_toTopOf="@id/title_reg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
