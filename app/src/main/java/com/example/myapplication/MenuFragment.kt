@@ -12,14 +12,17 @@ import android.widget.TextView
 
 import android.R
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 
 
 class MenuFragment : Fragment() {
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
+
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(
@@ -30,6 +33,16 @@ class MenuFragment : Fragment() {
         val binding = FragmentMenuBinding.inflate(layoutInflater)
 
         Toast.makeText(context, "Welcome, ${FirebaseAuth.getInstance().currentUser?.displayName}!", Toast.LENGTH_LONG).show()
+
+        // Click logic for logout (bottom right ImageView "button")
+        // Navigates to the login fragment, and signs the user out.
+        binding.logout.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MenuFragmentDirections
+                    .actionMenuFragmentToLogin())
+            Toast.makeText(context, "Goodbye, ${FirebaseAuth.getInstance().currentUser?.displayName}.", Toast.LENGTH_LONG).show()
+            auth.signOut()
+        }
 
         return binding.root
     }

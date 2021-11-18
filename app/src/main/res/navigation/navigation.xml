@@ -39,7 +39,11 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.myapplication.MenuFragment"
-        android:label="MenuFragment" />
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
     <fragment
         android:id="@+id/setDisplayNameFragment"
         android:name="com.example.myapplication.SetDisplayNameFragment"

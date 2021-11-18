@@ -18,15 +18,15 @@
         android:textAlignment="center"
         android:textColor="@color/hallow"
         android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/tbd1"
+        app:layout_constraintBottom_toTopOf="@+id/recipe_book"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
-        android:id="@+id/tbd1"
+        android:id="@+id/recipe_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/food_bank"
+        android:src="@drawable/recipe"
         android:background="@drawable/image_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,15 +35,15 @@
     />
 
     <ImageView
-        android:id="@+id/tbd2"
+        android:id="@+id/grocery_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:src="@drawable/food_bank"
+        android:src="@drawable/grocery_bag"
         android:background="@drawable/image_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/tbd1"
+        app:layout_constraintLeft_toRightOf="@id/recipe_book"
         />
 
     <ImageView
@@ -55,43 +55,44 @@
         android:background="@drawable/image_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/tbd1"
+        app:layout_constraintRight_toLeftOf="@id/recipe_book"
         />
 
     <ImageView
-        android:id="@+id/tbd4"
+        android:id="@+id/settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/image_border"
-        android:src="@drawable/food_bank"
-        app:layout_constraintTop_toBottomOf="@id/tbd1"
+        android:src="@drawable/settings"
+        app:layout_constraintTop_toBottomOf="@id/recipe_book"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
 
     <ImageView
-        android:id="@+id/tbd5"
+        android:id="@+id/logout"
+        android:onClick="press_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/image_border"
-        android:src="@drawable/food_bank"
-        app:layout_constraintTop_toBottomOf="@id/tbd2"
-        app:layout_constraintLeft_toRightOf="@id/tbd4"
+        android:src="@drawable/logout"
+        app:layout_constraintTop_toBottomOf="@id/grocery_list"
+        app:layout_constraintLeft_toRightOf="@id/settings"
         />
 
     <ImageView
-        android:id="@+id/tbd6"
+        android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/image_border"
-        android:src="@drawable/food_bank"
+        android:src="@drawable/profile"
         app:layout_constraintTop_toBottomOf="@id/tbd3"
-        app:layout_constraintRight_toLeftOf="@id/tbd4"
+        app:layout_constraintRight_toLeftOf="@id/settings"
         />
 
     <!--
