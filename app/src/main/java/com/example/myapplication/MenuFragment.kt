@@ -8,6 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.databinding.FragmentMenuBinding
 import com.google.firebase.auth.FirebaseAuth
+import android.widget.TextView
+
+import android.R
+import androidx.core.content.ContextCompat
+
 
 class MenuFragment : Fragment() {
 
@@ -24,7 +29,7 @@ class MenuFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentMenuBinding.inflate(layoutInflater)
 
-        Toast.makeText(context, "Welcome, ${FirebaseAuth.getInstance().currentUser?.displayName}", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Welcome, ${FirebaseAuth.getInstance().currentUser?.displayName}!", Toast.LENGTH_LONG).show()
 
         return binding.root
     }

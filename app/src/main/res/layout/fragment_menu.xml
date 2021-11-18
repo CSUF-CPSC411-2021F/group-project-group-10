@@ -5,8 +5,96 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MenuFragment">
 
+    <TextView
+        android:id="@+id/menu_rip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lobster"
+        android:padding="30dp"
+        android:text="Here lies the Menu Fragment"
+        android:textAlignment="center"
+        android:textColor="@color/hallow"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tbd1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/tbd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/food_bank"
+        android:background="@drawable/image_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+    />
+
+    <ImageView
+        android:id="@+id/tbd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/food_bank"
+        android:background="@drawable/image_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tbd1"
+        />
+
+    <ImageView
+        android:id="@+id/tbd3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/food_bank"
+        android:background="@drawable/image_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tbd1"
+        />
+
+    <ImageView
+        android:id="@+id/tbd4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/image_border"
+        android:src="@drawable/food_bank"
+        app:layout_constraintTop_toBottomOf="@id/tbd1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/tbd5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/image_border"
+        android:src="@drawable/food_bank"
+        app:layout_constraintTop_toBottomOf="@id/tbd2"
+        app:layout_constraintLeft_toRightOf="@id/tbd4"
+        />
+
+    <ImageView
+        android:id="@+id/tbd6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/image_border"
+        android:src="@drawable/food_bank"
+        app:layout_constraintTop_toBottomOf="@id/tbd3"
+        app:layout_constraintRight_toLeftOf="@id/tbd4"
+        />
+
+    <!--
     <TextView
         android:id="@+id/menu_rip"
         android:layout_width="wrap_content"
@@ -20,6 +108,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
