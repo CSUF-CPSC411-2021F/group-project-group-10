@@ -34,6 +34,13 @@ class MenuFragment : Fragment() {
 
         Toast.makeText(context, "Welcome, ${FirebaseAuth.getInstance().currentUser?.displayName}!", Toast.LENGTH_LONG).show()
 
+        // Click logic for profile navigation.
+        binding.profile.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MenuFragmentDirections
+                    .actionMenuFragmentToProfileFragment())
+        }
+
         // Click logic for logout (bottom right ImageView "button")
         // Navigates to the login fragment, and signs the user out.
         binding.logout.setOnClickListener { view: View ->

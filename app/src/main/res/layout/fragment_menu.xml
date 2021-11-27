@@ -85,6 +85,7 @@
 
     <ImageView
         android:id="@+id/profile"
+        android:onClick="press_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"

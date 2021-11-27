@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_menuFragment_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_menuFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/setDisplayNameFragment"
@@ -53,5 +56,10 @@
             android:id="@+id/action_setDisplayNameFragment_to_login"
             app:destination="@id/login" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>
