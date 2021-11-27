@@ -44,7 +44,7 @@
         android:id="@+id/email_direction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/lobster"
         android:text="Email: "
         android:textColor="@color/black"
@@ -81,6 +81,17 @@
         app:layout_constraintTop_toBottomOf="@+id/email_firebase"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/change_name"
+        android:onClick="press_rename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/rename"
+        app:layout_constraintTop_toBottomOf="@+id/email_firebase"
+        app:layout_constraintLeft_toRightOf="@+id/display_name_direction"
         />
 
     <TextView

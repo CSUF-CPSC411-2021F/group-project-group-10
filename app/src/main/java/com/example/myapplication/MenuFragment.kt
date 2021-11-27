@@ -8,10 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.databinding.FragmentMenuBinding
 import com.google.firebase.auth.FirebaseAuth
-import android.widget.TextView
-
-import android.R
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 
 
