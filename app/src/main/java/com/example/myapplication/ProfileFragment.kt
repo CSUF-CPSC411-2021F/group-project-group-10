@@ -26,6 +26,9 @@ class ProfileFragment : Fragment() {
 
         val binding = FragmentProfileBinding.inflate(layoutInflater)
 
+        binding.emailFirebase.text = FirebaseAuth.getInstance().currentUser?.email
+        binding.displayNameFirebase.text = FirebaseAuth.getInstance().currentUser?.displayName
+
         return binding.root
     }
 }
