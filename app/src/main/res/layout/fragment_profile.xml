@@ -8,6 +8,7 @@
     tools:context=".ProfileFragment">
 
     <ImageView
+        android:id="@+id/profile_casket"
         android:background="@drawable/image_border"
         android:layout_gravity="center"
         android:layout_width="300dp"
@@ -22,12 +23,12 @@
         android:id="@+id/picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/circle_image_border"
         android:src="@drawable/face"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/profile_casket"
+        app:layout_constraintStart_toStartOf="@id/profile_casket"
+        app:layout_constraintTop_toTopOf="@id/profile_casket"
         />
 
     <TextView
