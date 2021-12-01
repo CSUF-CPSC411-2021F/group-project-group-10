@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_menuFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_recipeListFragment"
+            app:destination="@id/recipeListFragment" />
     </fragment>
     <fragment
         android:id="@+id/setDisplayNameFragment"
@@ -66,7 +69,6 @@
             app:destination="@id/setDisplayNameFragment" />
     </fragment>
 
-    app:startDestination="@id/recipeListFragment">
     <fragment
         android:id="@+id/recipeListFragment"
         android:name="com.example.myapplication.RecipeListFragment"

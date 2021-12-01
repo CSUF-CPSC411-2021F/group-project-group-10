@@ -37,6 +37,13 @@ class MenuFragment : Fragment() {
                     .actionMenuFragmentToProfileFragment())
         }
 
+        // Click logic for recipe creation navigation.
+        binding.recipeBook.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MenuFragmentDirections
+                    .actionMenuFragmentToRecipeListFragment())
+        }
+
         // Click logic for logout (bottom right ImageView "button")
         // Navigates to the login fragment, and signs the user out.
         binding.logout.setOnClickListener { view: View ->
@@ -46,6 +53,8 @@ class MenuFragment : Fragment() {
             Toast.makeText(context, "Goodbye, ${FirebaseAuth.getInstance().currentUser?.displayName}.", Toast.LENGTH_LONG).show()
             auth.signOut()
         }
+
+
 
         return binding.root
     }
