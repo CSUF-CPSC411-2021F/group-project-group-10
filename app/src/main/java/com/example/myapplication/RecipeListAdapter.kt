@@ -1,58 +1,49 @@
 package com.example.myapplication
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.database.Recipe
+import com.example.myapplication.databinding.RecipeListItemBinding
 
-class RecipeListAdapter(
-    private var dataset: MutableList<Recipe>,
-    private val listener: onItemClickListener
-) :
-    RecyclerView.Adapter<RecipeListAdapter.ItemViewHolder>() {
 
-    inner class ItemViewHolder (itemView: View): RecyclerView.ViewHolder(itemView),
-    View.OnClickListener{
-        val recipe_name: TextView = itemView.findViewById(R.id.recipeName)
-        val rIngredients: TextView = itemView.findViewById(R.id.ingredients)
-        val recipe_steps: TextView = itemView.findViewById(R.id.steps)
+class RecipeListAdapter(val clickListener: RecipeListener,val rvm: RecipeViewModel) : ListAdapter<Recipe,
+        RecipeListAdapter.ItemViewHolder>(RecipeDiffCallback()) {
 
-        init{
-            itemView.setOnClickListener(this)
+    class ItemViewHolder (val binding: RecipeListItemBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(item: Recipe, clickListener: RecipeListener, recipeViewModel: RecipeViewModel) {
+            binding.recipe = item
+            binding.clickListener = clickListener
+            binding.recipeViewModel = recipeViewModel
         }
-
-        override fun onClick(v: View?) {
-            val position: Int = adapterPosition
-            if(position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
-            }
-        }
-    }
-
-    interface onItemClickListener{
-        fun onItemClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recipe_list_item, parent, false)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = RecipeListItemBinding.inflate(layoutInflater, parent, false)
 
-        return ItemViewHolder(adapterLayout)
+        return ItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val currentItem = dataset[position]
-
-        holder.recipe_name.text = currentItem.rName
-        holder.rIngredients.text = currentItem.ingredients
-        holder.recipe_steps.text = currentItem.steps
+        holder.bind(getItem(position), clickListener, rvm)
     }
 
-    override fun getItemCount() = dataset.size
+}
 
-    class SleepNightListener(val clickListener: (rName: String) -> Unit){
-        fun onClick(recipe: Recipe) = clickListener(recipe.rName)
+class RecipeDiffCallback : DiffUtil.ItemCallback<Recipe>() {
+
+    override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
+        return oldItem.recipeId == newItem.recipeId
     }
 
+    override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
+        return oldItem.name == newItem.name && oldItem.ingredients == newItem.ingredients && oldItem.instructions == newItem.instructions
+    }
+}
+
+class RecipeListener(val clickListener: (recipeId: Long) -> Unit) {
+    fun onClick(recipe: Recipe) = clickListener(recipe.recipeId)
 }
