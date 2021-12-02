@@ -1,45 +1,31 @@
 package com.example.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.example.myapplication.GroceryListAdapter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    var count = 0
-
-    /**
-     * Sets up the layout and interactions with the main screen of the application.
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // Create data binding and assign layout for the activity.
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        var groceryRVAdapter = GroceryListAdapter(this)
-        binding.groceryList.adapter = groceryRVAdapter
+        // Setup navigation controller and action bar.
+        val navController = this.findNavController(R.id.nav_host)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+    }
 
-
-        binding.addIngredient.setOnClickListener {
-            count++
-            val toast = Toast.makeText(
-                this,
-                "Adding ${binding.itemName.text}",
-                Toast.LENGTH_SHORT
-            )
-
-            toast.show()
-
-            // We can access the data through the dataset property inside intersectionListAdapter.the d
-            groceryRVAdapter.dataset.add("${count}. ${binding.itemName.text}")
-
-            // Inform the adapter that we made changes so the visual representation can be updated.
-            groceryRVAdapter.notifyDataSetChanged()
-            binding.itemName.setText("")
-
-        }
-
+    /**
+     * Override the default implementation of the Up button so that it uses our
+     * navController.
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_host)
+        return navController.navigateUp()
     }
 }

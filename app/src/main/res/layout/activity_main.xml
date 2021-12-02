@@ -1,75 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
-
-
-    <TextureView
-        android:id="@+id/textureView"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Main activity layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/GroceryListTitle"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="13dp"
-        android:background="#FF8058"
-        android:text="@string/grocery_list"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Use navigation to display the corresponding fragment. -->
+        <fragment
+            android:id="@+id/nav_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/navigation" />
 
-    <EditText
-        android:id="@+id/itemName"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:hint="Ingredient name"
-        app:layout_constraintStart_toStartOf="@id/sideBar"
-        app:layout_constraintTop_toBottomOf="@id/GroceryListTitle" />
-
-    <Button
-        android:id="@+id/addIngredient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="Add Ingredient to list"
-        app:backgroundTint="#FF8058"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemName" />
-
-    <View
-        android:id="@+id/sideBar"
-        android:layout_width="30dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="12dp"
-        android:background="#FF8058"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/groceryList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/addIngredient"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

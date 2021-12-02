@@ -1,37 +1,49 @@
 package com.example.myapplication
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
+import com.example.myapplication.database.Grocery
+import com.example.myapplication.databinding.GroceryItemBinding
 
+class GroceryListAdapter(val clickListener: GroceryListener) : ListAdapter<Grocery,
+        GroceryListAdapter.ItemViewHolder>(GroceryDiffCallback()) {
 
-class GroceryListAdapter(private val context: Context,
-                         var dataset: MutableList<String> = mutableListOf<String>()
-):RecyclerView.Adapter<GroceryListAdapter.ItemViewHolder>() {
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val itemName: TextView = view.findViewById(R.id.itemName)
+    class ItemViewHolder(val binding: GroceryItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(item: Grocery, clickListener: GroceryListener) {
+            binding.grocery = item
+            binding.clickListener = clickListener
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-
-        val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
-
-        // We create and return an ItemViewHolder object using the layout we inflated.
-        return ItemViewHolder(adapterLayout)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = GroceryItemBinding.inflate(layoutInflater, parent, false)
+        return ItemViewHolder(binding)
     }
+
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-
-        val item = dataset[position]
-
-        holder.itemName.text = item
+        holder.bind(getItem(position), clickListener)
     }
-    // Retrieves the amount of data inside our data set.
-    override fun getItemCount(): Int = dataset.size
+}
+
+class GroceryDiffCallback : DiffUtil.ItemCallback<Grocery>() {
+
+    override fun areItemsTheSame(oldItem: Grocery, newItem: Grocery): Boolean {
+        return oldItem.groceryId == newItem.groceryId
+    }
+
+
+    override fun areContentsTheSame(oldItem: Grocery, newItem: Grocery): Boolean {
+        return oldItem.name == newItem.name
+    }
+}
+
+class GroceryListener(val clickListener: (groceryId: Long) -> Unit) {
+    fun onClick(grocery: Grocery) = clickListener(grocery.groceryId)
 }
