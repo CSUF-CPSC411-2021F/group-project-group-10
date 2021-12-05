@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/openingFragment">
+    app:startDestination="@id/AIFragment">
 
     <fragment
         android:id="@+id/openingFragment"
@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_menuFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_AIFragment"
+            app:destination="@id/AIFragment" />
     </fragment>
     <fragment
         android:id="@+id/setDisplayNameFragment"
@@ -65,5 +68,10 @@
             android:id="@+id/action_profileFragment_to_setDisplayNameFragment"
             app:destination="@id/setDisplayNameFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/AIFragment"
+        android:name="com.example.myapplication.AIFragment"
+        android:label="fragment_a_i"
+        tools:layout="@layout/fragment_a_i" />
 
 </navigation>

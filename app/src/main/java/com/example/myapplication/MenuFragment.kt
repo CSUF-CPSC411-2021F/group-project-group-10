@@ -37,6 +37,13 @@ class MenuFragment : Fragment() {
                     .actionMenuFragmentToProfileFragment())
         }
 
+        // Click logic for AI navigation.
+        binding.AI.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MenuFragmentDirections
+                    .actionMenuFragmentToAIFragment())
+        }
+
         // Click logic for logout (bottom right ImageView "button")
         // Navigates to the login fragment, and signs the user out.
         binding.logout.setOnClickListener { view: View ->
