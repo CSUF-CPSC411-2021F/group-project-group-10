@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/openingFragment"
         android:name="com.example.myapplication.OpeningFragment"
-        android:label="fragment_opening"
+        android:label="Cookmunity"
         tools:layout="@layout/fragment_opening" >
         <action
             android:id="@+id/action_openingFragment_to_login"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/login"
         android:name="com.example.myapplication.LoginFragment"
-        android:label="fragment_login"
+        android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_to_registerFragment"
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.myapplication.RegisterFragment"
-        android:label="fragment_register"
+        android:label="Registration"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_setDisplayNameFragment"
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.myapplication.MenuFragment"
-        android:label="MenuFragment" >
+        android:label="Menu" >
         <action
             android:id="@+id/action_menuFragment_to_login"
             app:destination="@id/login" />
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/setDisplayNameFragment"
         android:name="com.example.myapplication.SetDisplayNameFragment"
-        android:label="fragment_set_display_name"
+        android:label="Set Moniker"
         tools:layout="@layout/fragment_set_display_name" >
         <action
             android:id="@+id/action_setDisplayNameFragment_to_login"
@@ -62,7 +62,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.myapplication.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_setDisplayNameFragment"
@@ -71,7 +71,7 @@
     <fragment
         android:id="@+id/AIFragment"
         android:name="com.example.myapplication.AIFragment"
-        android:label="fragment_a_i"
+        android:label="Recipe Bot"
         tools:layout="@layout/fragment_a_i" />
 
 </navigation>
