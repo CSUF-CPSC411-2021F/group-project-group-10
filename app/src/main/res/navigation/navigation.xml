@@ -11,11 +11,11 @@
         android:label="Manage Groceries">
         <action
             android:id="@+id/action_groceryListFragment_to_groceryItemFragment"
-            app:destination="@id/groceryItemFragment" />
+            app:destination="@id/GroceryItemFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/groceryItemFragment"
+        android:id="@+id/GroceryItemFragment"
         android:name="com.example.myapplication.groceryItem.GroceryItemFragment"
         android:label="Groceries Information">
         <argument

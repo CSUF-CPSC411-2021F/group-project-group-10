@@ -30,7 +30,7 @@ class GroceryViewModel(
         viewModelScope.launch {
             // Create Grocery object using data stored in the EditText views
             var grocery = Grocery()
-            grocery.name = "New Grocery"
+            grocery.name = name.value.toString()
 
             // Insert data to the database using the insert coroutine.
             database.insert(grocery)
@@ -46,6 +46,13 @@ class GroceryViewModel(
         viewModelScope.launch {
             // Delete data from the database using the clear coroutine.
             database.clear()
+        }
+    }
+
+    fun delete(grocery: Grocery) {
+        viewModelScope.launch {
+            // Delete data from the database using the clear coroutine.
+            database.deleteGrocery(grocery.groceryId)
         }
     }
 

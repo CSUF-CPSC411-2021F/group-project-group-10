@@ -17,12 +17,11 @@ class GroceryItemFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Retrieve arguments passed from the RecyclerView
         val args = GroceryItemFragmentArgs.fromBundle(
             requireArguments()
         )
-
 
         // Create data binding
         val binding: GroceryItemFragmentBinding =

@@ -12,6 +12,10 @@
         <variable
             name="clickListener"
             type="com.example.myapplication.GroceryListener" />
+
+        <variable
+            name="groceryViewModel"
+            type="com.example.myapplication.GroceryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,5 +43,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/deleteGrocery"
+            android:layout_width="21dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/white"
+            android:onClick="@{()-> groceryViewModel.delete(grocery)}"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            app:layout_constraintVertical_bias="0.533"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

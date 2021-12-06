@@ -38,4 +38,7 @@ interface GroceryDao {
     // We use suspend to run the function asynchronously (coroutine).
     @Query("DELETE from grocery_table")
     suspend fun clear()
+
+    @Query("DELETE from grocery_table WHERE groceryId = :key")
+    suspend fun deleteGrocery(key: Long)
 }
