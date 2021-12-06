@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/GroceryItemFragment"
         android:name="com.example.myapplication.groceryItem.GroceryItemFragment"
-        android:label="Groceries Information">
+        android:label="Item Information">
         <argument
             android:name="groceryId"
             app:argType="long" />

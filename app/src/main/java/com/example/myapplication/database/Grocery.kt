@@ -24,5 +24,8 @@ data class Grocery(
 
     // Non-rprimary key column. Data type is specified in the property.
     @ColumnInfo()
-    var name: String = ""
+    var name: String = "",
+
+//    @ColumnInfo()
+//    var information: String = ""
 )

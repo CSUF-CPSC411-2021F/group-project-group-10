@@ -16,9 +16,8 @@ class GroceryViewModel(
 
     // Used to assign and retrieve name and location values from the interface.
     var name = MutableLiveData("")
+//    var information = MutableLiveData("")
 
-    // Retrieves all Grocery objects from the database
-    // Represented as a LiveData<List<Grocery>>
     val groceryList = database.getAllGroceries()
 
     /**
@@ -31,7 +30,7 @@ class GroceryViewModel(
             // Create Grocery object using data stored in the EditText views
             var grocery = Grocery()
             grocery.name = name.value.toString()
-
+//            grocery.information = information.value.toString()
             // Insert data to the database using the insert coroutine.
             database.insert(grocery)
         }

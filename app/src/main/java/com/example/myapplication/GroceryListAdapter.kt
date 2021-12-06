@@ -41,6 +41,7 @@ class GroceryDiffCallback : DiffUtil.ItemCallback<Grocery>() {
 
     override fun areContentsTheSame(oldItem: Grocery, newItem: Grocery): Boolean {
         return oldItem.name == newItem.name
+//                && oldItem.information == newItem.information
     }
 }
 
