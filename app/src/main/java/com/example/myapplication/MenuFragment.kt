@@ -37,6 +37,13 @@ class MenuFragment : Fragment() {
                     .actionMenuFragmentToProfileFragment())
         }
 
+        // Click logic for AI navigation.
+        binding.AI.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MenuFragmentDirections
+                    .actionMenuFragmentToAIFragment())
+        }
+
         // Click logic for recipe creation navigation.
         binding.recipeBook.setOnClickListener { view: View ->
             view.findNavController()
@@ -53,8 +60,6 @@ class MenuFragment : Fragment() {
             Toast.makeText(context, "Goodbye, ${FirebaseAuth.getInstance().currentUser?.displayName}.", Toast.LENGTH_LONG).show()
             auth.signOut()
         }
-
-
 
         return binding.root
     }
