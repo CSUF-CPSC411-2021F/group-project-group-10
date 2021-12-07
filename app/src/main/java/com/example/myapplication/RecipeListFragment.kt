@@ -38,18 +38,13 @@ class RecipeListFragment : Fragment() {
         // Provide a lambda function that is called when the RecyclerView item is selected.
         var recipeAdapter = RecipeListAdapter(RecipeListener {
                 recipeId ->
-            // Navigate to the intersection view and provide the id of the intersection referenced
-            // by the select RecyclerView item.
             this.findNavController().navigate(
                 RecipeListFragmentDirections
                     .actionRecipeListFragmentToRecipeItemFragment(recipeId)
             )
         }, recipeViewModel)
-        // Attach intersection adapter.
         binding.reciperecyclerview.adapter = recipeAdapter
 
-        // Submit an updated list to the intersection listAdapter whenever it changes. Take note
-        // intersectionList is a LiveData object.
         recipeViewModel.recipeList.observe(viewLifecycleOwner, Observer {
             it?.let {
                 recipeAdapter.submitList(it)

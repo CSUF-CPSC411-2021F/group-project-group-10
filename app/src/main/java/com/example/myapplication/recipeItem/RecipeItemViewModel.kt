@@ -10,11 +10,10 @@ import kotlinx.coroutines.launch
 
 class RecipeItemViewModel(
     val recipeId: Long,
-    val database: RecipeDao, // Data access object for the Intersection entity
+    val database: RecipeDao,
     application: Application
 ) : AndroidViewModel(application) {
 
-    // Retrieves a LiveData-wrapped intersection object given its ID
     val recipe = database.get(recipeId)
 
     fun save() {

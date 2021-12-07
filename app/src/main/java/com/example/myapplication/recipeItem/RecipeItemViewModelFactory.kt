@@ -11,9 +11,6 @@ class RecipeItemViewModelFactory(
     private val application: Application
 ): ViewModelProvider.Factory {
 
-    /**
-     * Creates the IntersectionViewModel
-     */
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RecipeItemViewModel::class.java)) { // ViewModel class

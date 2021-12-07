@@ -19,22 +19,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/hallow"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="414dp"
-            android:layout_height="50dp"
+            android:layout_width="370dp"
+            android:layout_height="45dp"
             android:onClick="@{()-> clickListener.onClick(recipe)}"
+            android:padding="5dp"
             android:text="@{recipe.name}"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
 
         <ImageButton
             android:id="@+id/deleteRecipe"
             android:layout_width="21dp"
             android:layout_height="35dp"
-            android:backgroundTint="@color/hallow"
+            android:backgroundTint="@color/white"
             android:onClick="@{()-> recipeViewModel.delete(recipe)}"
             app:layout_constraintBottom_toBottomOf="@+id/name"
             app:layout_constraintEnd_toEndOf="@+id/name"

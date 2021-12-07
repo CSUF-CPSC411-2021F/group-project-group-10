@@ -29,24 +29,17 @@ class RecipeItemFragment : Fragment() {
         // Get reference to this application
         val application = requireNotNull(this.activity).application
 
-        // Retrieve Intersection data access object.
         val dataSource = RecipeDatabase.getInstance(application).recipeDao
 
-        // Create a factory that generates an IntersectionViewModel connected to the database. The
-        // intersectionId passed from the RecyclerView is used to display the corresponding
-        // information.
         val viewModelFactory =
             RecipeItemViewModelFactory(args.recipeId, dataSource, application)
 
-        // Generate an IntersectionViewModel using the factory.
         val recipeItemViewModel =
             ViewModelProvider(
                 this, viewModelFactory
             ).get(RecipeItemViewModel::class.java)
 
-        // Connect the IntersectionViewModel with the variable in the layout
         binding.recipeItemViewModel = recipeItemViewModel
-        // Assign the lifecycle owner to the activity so it manages the data accordingly.
         binding.lifecycleOwner = this
 
         return binding.root
