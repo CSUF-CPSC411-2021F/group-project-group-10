@@ -59,7 +59,7 @@ private fun findRecipe(list: MutableList<String>, f: String, s: String, t: Strin
     val rando = Random.nextInt(0, list.size)
 
     // Iterates through the list of recipes looking for
-    // ingredient inclusion. Adds a value of 1 to 3 for
+    // ingredient inclusion. Adds a value of 0 to 3 for
     // each element of the objective function array based
     // on the number of ingredients found in each list indices.
     for (item in list.indices)
