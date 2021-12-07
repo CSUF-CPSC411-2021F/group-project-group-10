@@ -64,6 +64,7 @@ class LoginFragment : Fragment() {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
                     if(task.isSuccessful) {
                         Toast.makeText(context, "Login successful!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Welcome, ${FirebaseAuth.getInstance().currentUser?.displayName}!", Toast.LENGTH_LONG).show()
                         requireView().findNavController()
                             .navigate(LoginFragmentDirections
                                 .actionLoginToMenuFragment())

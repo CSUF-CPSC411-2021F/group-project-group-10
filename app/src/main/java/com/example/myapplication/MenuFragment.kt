@@ -28,8 +28,6 @@ class MenuFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentMenuBinding.inflate(layoutInflater)
 
-        Toast.makeText(context, "Welcome, ${FirebaseAuth.getInstance().currentUser?.displayName}!", Toast.LENGTH_LONG).show()
-
         // Click logic for profile navigation.
         binding.profile.setOnClickListener { view: View ->
             view.findNavController()
