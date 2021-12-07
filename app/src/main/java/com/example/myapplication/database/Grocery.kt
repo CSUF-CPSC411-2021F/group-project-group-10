@@ -26,6 +26,6 @@ data class Grocery(
     @ColumnInfo()
     var name: String = "",
 
-//    @ColumnInfo()
-//    var information: String = ""
+    @ColumnInfo()
+    var information: String = ""
 )

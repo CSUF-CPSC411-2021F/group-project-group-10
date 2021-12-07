@@ -8,16 +8,20 @@
     <fragment
         android:id="@+id/groceryListFragment"
         android:name="com.example.myapplication.GroceryListFragment"
-        android:label="Manage Groceries">
+        android:label="Manage Groceries"
+        android:background="#FF8058"
+        >
         <action
             android:id="@+id/action_groceryListFragment_to_groceryItemFragment"
-            app:destination="@id/GroceryItemFragment" />
+            app:destination="@id/groceryItemFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/GroceryItemFragment"
+        android:id="@+id/groceryItemFragment"
         android:name="com.example.myapplication.groceryItem.GroceryItemFragment"
-        android:label="Item Information">
+        android:label="Item Information"
+        android:background="#FF8058"
+        >
         <argument
             android:name="groceryId"
             app:argType="long" />

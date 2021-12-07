@@ -8,6 +8,7 @@
         <variable
             name="groceryViewModel"
             type="com.example.myapplication.GroceryViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,10 +28,25 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:text="@={groceryViewModel.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Details"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={groceryViewModel.information}"
+            app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintBottom_toTopOf="@id/clear"
             app:layout_constraintEnd_toEndOf="@id/add_grocery"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="@id/clear" />
+            app:layout_constraintStart_toStartOf="@id/name" />
 
         <Button
             android:id="@+id/add_grocery"
@@ -43,7 +59,7 @@
             android:textStyle="bold"
             app:backgroundTint="#FF8058"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/information" />
 
         <!-- onClick accepts a lambda function indicated by () -> The body
              of the lambda function calls the clear function
@@ -59,7 +75,7 @@
             android:textStyle="bold"
             app:backgroundTint="#FF8058"
             app:layout_constraintStart_toEndOf="@id/sideBar"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/information" />
 
         <TextView
             android:id="@+id/groceriesLabel"

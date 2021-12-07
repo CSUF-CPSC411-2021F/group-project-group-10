@@ -22,14 +22,16 @@ class GroceryItemViewModel(
     // Retrieves a LiveData-wrapped intersection object given its ID
     val grocery = database.get(groceryId)
 
-//    fun save() {
-//        // Launch coroutines in the viewModelScope so that the coroutines are automatically
-//        // canceled when the ViewModel is destroyed.
-//        viewModelScope.launch(Dispatchers.IO) {
-//            var rec = Grocery()
-//            rec.information = grocery!!.value!!.information
-//
-//            database.update(rec)
-//        }
-//    }
+    fun save() {
+        // Launch coroutines in the viewModelScope so that the coroutines are automatically
+        // canceled when the ViewModel is destroyed.
+        viewModelScope.launch(Dispatchers.IO) {
+            var gro = Grocery()
+            gro.groceryId = groceryId
+            gro.information = grocery!!.value!!.information
+            gro.name = grocery!!.value!!.name
+
+            database.update(gro)
+        }
+    }
 }
