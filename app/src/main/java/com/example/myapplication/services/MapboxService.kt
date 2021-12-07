@@ -36,26 +36,9 @@ class MapboxService {
 
         // List of API endpoints you want to access
         interface MapboxGeoCodingApiService {
-            /**
-             * Retrieves a valid address that closely matches the search string.
-             *
-             * The @GET annotation describes the API endpoint. You can include
-             * variables using {} that enclose a variable name.
-             *
-             * The @PATH annotation assigns the parameter value to the variable
-             * on the URL string marked with { }.
-             *
-             * The @Query annotation adds a query to the end of the URL with the
-             * specified name and value from the associated parameter.
-             *
-             * @param search search string
-             * @param token access token
-             * @return Place object built from the API data
-             */
             @GET("geocoding/v5/mapbox.places/market.json")
             fun getLocation(@Query(value = "proximity") proximity: String = "-117.88522078474725,33.880650097912564",
-                          @Query("access_token") token: String = ACCESS_TOKEN):
-                    Call<Place>
+                          @Query("access_token") token: String = ACCESS_TOKEN): Call<Place>
         }
 
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.MapFragmentBinding
+import com.example.myapplication.objects.Feature
 import com.example.myapplication.objects.GeocodingViewModel
 
 /**
@@ -18,10 +19,14 @@ class MapFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var binding: MapFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.map_fragment,
-            container,false)
-
         val model = GeocodingViewModel()
+        val markets = mutableListOf<Feature>()
+
+        val binding: MapFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.map_fragment,
+            container,false)
+        val adapter: MapAdapter(this)
+        binding.marketList.adapter = adapter
+
         binding.geoCodingViewModel = model
         binding.lifecycleOwner = this
         // Make sure our BindingAdapters are connected
@@ -29,4 +34,6 @@ class MapFragment : Fragment() {
 
         return binding.root
     }
+
+
 }
