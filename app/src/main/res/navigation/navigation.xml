@@ -95,4 +95,28 @@
             android:name="recipeId"
             app:argType="long" />
     </fragment>
+    app:startDestination="@id/groceryListFragment">
+
+    <fragment
+        android:id="@+id/groceryListFragment"
+        android:name="com.example.myapplication.GroceryListFragment"
+        android:label="Manage Groceries"
+        android:background="#FF8058"
+        >
+        <action
+            android:id="@+id/action_groceryListFragment_to_groceryItemFragment"
+            app:destination="@id/groceryItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/groceryItemFragment"
+        android:name="com.example.myapplication.groceryItem.GroceryItemFragment"
+        android:label="Item Information"
+        android:background="#FF8058"
+        >
+        <argument
+            android:name="groceryId"
+            app:argType="long" />
+    </fragment>
+
 </navigation>

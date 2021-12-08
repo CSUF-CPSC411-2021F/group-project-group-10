@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="groceryItemViewModel"
+            type="com.example.myapplication.groceryItem.GroceryItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".groceryItem.GroceryItemFragment">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#35A5FF"
+            android:text="@{groceryItemViewModel.grocery.name}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/infoTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/infoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding= "4dp"
+            android:text="Item Information"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toTopOf= "@id/name"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/information"
+            android:background="@drawable/textview_border"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            />
+
+
+        <EditText
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#BEEAFF"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:gravity="top"
+            android:hint="Type here..."
+            android:textColor="@color/black"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintStart_toStartOf="@id/infoTitle"
+            app:layout_constraintTop_toBottomOf="@+id/infoTitle"
+            android:text="@={groceryItemViewModel.grocery.information}"
+            />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#35A5FF"
+            android:onClick="@{() -> groceryItemViewModel.save()}"
+            android:text="Save Info"
+            android:textColor="@color/white"
+            app:backgroundTint="#35A5FF"
+            app:layout_constraintEnd_toEndOf="@id/information"
+            app:layout_constraintTop_toBottomOf="@id/information" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

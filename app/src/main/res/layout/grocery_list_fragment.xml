@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Main fragment showing the input text fields and grocery list. -->
+    <data>
+        <!-- groceryViewModel variable used to manage data on the fragment. -->
+        <variable
+            name="groceryViewModel"
+            type="com.example.myapplication.GroceryViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!-- @= indicates that value in the edit text is copied to the ViewModel's name -->
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Ingredient Name"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={groceryViewModel.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Details"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={groceryViewModel.information}"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintBottom_toTopOf="@id/clear"
+            app:layout_constraintEnd_toEndOf="@id/add_grocery"
+            app:layout_constraintStart_toStartOf="@id/name" />
+
+        <Button
+            android:id="@+id/add_grocery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:onClick="@{() -> groceryViewModel.insert()}"
+            android:text="Add Grocery Item"
+            android:textStyle="bold"
+            app:backgroundTint="#FF8058"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/information" />
+
+        <!-- onClick accepts a lambda function indicated by () -> The body
+             of the lambda function calls the clear function
+         -->
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="@{()-> groceryViewModel.clear()}"
+            android:text="Clear"
+            android:textStyle="bold"
+            app:backgroundTint="#FF8058"
+            app:layout_constraintStart_toEndOf="@id/sideBar"
+            app:layout_constraintTop_toBottomOf="@+id/information" />
+
+        <TextView
+            android:id="@+id/groceriesLabel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#FF8058"
+            android:text="Grocery List"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@id/add_grocery"
+            app:layout_constraintTop_toBottomOf="@id/clear" />
+
+        <View
+            android:id="@+id/sideBar"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:background="#FF8058"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <!-- Recycler view that shows the list of groceries. -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grocery_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/groceriesLabel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
