@@ -49,6 +49,13 @@ class MenuFragment : Fragment() {
                     .actionMenuFragmentToRecipeListFragment())
         }
 
+        // Click logic for grocery list navigation.
+        binding.groceryList.setOnClickListener { view: View ->
+            view.findNavController()
+                .navigate(MenuFragmentDirections
+                    .actionMenuFragmentToGroceryListFragment())
+        }
+
         // Click logic for logout (bottom right ImageView "button")
         // Navigates to the login fragment, and signs the user out.
         binding.logout.setOnClickListener { view: View ->

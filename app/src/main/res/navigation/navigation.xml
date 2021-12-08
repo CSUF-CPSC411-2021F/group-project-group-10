@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_menuFragment_to_recipeListFragment"
             app:destination="@id/recipeListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_groceryListFragment"
+            app:destination="@id/groceryListFragment" />
     </fragment>
     <fragment
         android:id="@+id/setDisplayNameFragment"
