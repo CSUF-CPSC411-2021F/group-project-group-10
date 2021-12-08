@@ -27,7 +27,7 @@ class OpeningFragment : Fragment() {
 
         // On click listener for the Pho bowl on the opening screen.
         // Click it to proceed to the login fragment.
-        binding.phoBowl.setOnClickListener { view: View ->
+        binding.phoDistrict.setOnClickListener { view: View ->
             view.findNavController()
                 .navigate(OpeningFragmentDirections
                     .actionOpeningFragmentToLogin())

@@ -19,14 +19,14 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/ai_pic"
         android:onClick="submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:background="@drawable/ai_circle_border"
-        android:src="@drawable/robot"
+        android:src="@drawable/botty"
         app:layout_constraintEnd_toEndOf="@id/robot_box"
         app:layout_constraintStart_toStartOf="@id/robot_box"
         app:layout_constraintTop_toTopOf="@id/robot_box"
