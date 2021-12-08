@@ -115,7 +115,7 @@
         android:id="@+id/groceryItemFragment"
         android:name="com.example.myapplication.groceryItem.GroceryItemFragment"
         android:label="Item Information"
-        android:background="#FF8058"
+        android:background = "@drawable/hallow2whitegradient"
         >
         <argument
             android:name="groceryId"
