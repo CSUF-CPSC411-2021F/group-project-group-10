@@ -45,7 +45,7 @@ class GroceryListFragment : Fragment() {
                 GroceryListFragmentDirections
                     .actionGroceryListFragmentToGroceryItemFragment(groceryId)
             )
-        })
+        }, groceryViewModel)
         binding.groceryRecyclerview.adapter = groceryAdapter
 
         groceryViewModel.groceryList.observe(viewLifecycleOwner, Observer {

@@ -8,15 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.database.Grocery
 import com.example.myapplication.databinding.GroceryItemBinding
 
-class GroceryListAdapter(val clickListener: GroceryListener) : ListAdapter<Grocery,
+class GroceryListAdapter(val clickListener: GroceryListener, val gvm: GroceryViewModel) : ListAdapter<Grocery,
         GroceryListAdapter.ItemViewHolder>(GroceryDiffCallback()) {
 
-    class ItemViewHolder(val binding: GroceryItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class ItemViewHolder(val binding: GroceryItemBinding ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Grocery, clickListener: GroceryListener) {
+        fun bind(item: Grocery, clickListener: GroceryListener, groceryViewModel: GroceryViewModel) {
             binding.grocery = item
             binding.clickListener = clickListener
+            binding.groceryViewModel = groceryViewModel
         }
     }
 
@@ -28,7 +28,7 @@ class GroceryListAdapter(val clickListener: GroceryListener) : ListAdapter<Groce
 
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(getItem(position), clickListener)
+        holder.bind(getItem(position), clickListener, gvm)
     }
 }
 
@@ -40,8 +40,7 @@ class GroceryDiffCallback : DiffUtil.ItemCallback<Grocery>() {
 
 
     override fun areContentsTheSame(oldItem: Grocery, newItem: Grocery): Boolean {
-        return oldItem.name == newItem.name
-//                && oldItem.information == newItem.information
+        return oldItem.name == newItem.name && oldItem.information == newItem.information
     }
 }
 

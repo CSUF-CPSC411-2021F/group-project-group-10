@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/opening_gradient"
+    tools:context=".OpeningFragment">
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lobster"
+        android:textAlignment="center"
+        android:textColor="@color/hallow"
+        android:textSize="40sp"
+        android:background="@drawable/true_text_border"
+        android:text="Welcome to the Cookmunity!"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/enter_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Tap the Pho to get cookin'!"
+        android:fontFamily="@font/subtext"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text"
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/pho_district"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="enterLogin"
+        android:src="@drawable/neon_pho"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_hint" />
+
+    <!--
+    <ImageView
+        android:id="@+id/pho_bowl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="enterLogin"
+        android:src="@drawable/pho"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        /> -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

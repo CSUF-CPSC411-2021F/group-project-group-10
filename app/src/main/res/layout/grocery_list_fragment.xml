@@ -8,11 +8,13 @@
         <variable
             name="groceryViewModel"
             type="com.example.myapplication.GroceryViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background = "@drawable/hallow2whitegradient"
         tools:context=".MainActivity">
 
         <!-- @= indicates that value in the edit text is copied to the ViewModel's name -->
@@ -27,10 +29,25 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:text="@={groceryViewModel.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Details"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={groceryViewModel.information}"
+            app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintBottom_toTopOf="@id/clear"
             app:layout_constraintEnd_toEndOf="@id/add_grocery"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="@id/clear" />
+            app:layout_constraintStart_toStartOf="@id/name" />
 
         <Button
             android:id="@+id/add_grocery"
@@ -41,9 +58,9 @@
             android:onClick="@{() -> groceryViewModel.insert()}"
             android:text="Add Grocery Item"
             android:textStyle="bold"
-            app:backgroundTint="#FF8058"
+            app:backgroundTint="@color/hallow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/information" />
 
         <!-- onClick accepts a lambda function indicated by () -> The body
              of the lambda function calls the clear function
@@ -57,22 +74,22 @@
             android:onClick="@{()-> groceryViewModel.clear()}"
             android:text="Clear"
             android:textStyle="bold"
-            app:backgroundTint="#FF8058"
+            app:backgroundTint="@color/hallow"
             app:layout_constraintStart_toEndOf="@id/sideBar"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/information" />
 
         <TextView
             android:id="@+id/groceriesLabel"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="#FF8058"
+            android:layout_marginTop="4dp"
+            android:background="@color/hallow"
             android:text="Grocery List"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@id/add_grocery"
             app:layout_constraintTop_toBottomOf="@id/clear" />
 
@@ -81,7 +98,7 @@
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:layout_marginStart="12dp"
-            android:background="#FF8058"
+            android:background="@color/hallow"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="0dp" />
 

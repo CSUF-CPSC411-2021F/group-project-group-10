@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.myapplication.database.Recipe"/>
+
+        <variable
+            name="clickListener"
+            type="com.example.myapplication.RecipeListener" />
+
+        <variable
+            name="recipeViewModel"
+            type="com.example.myapplication.RecipeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/hallow"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="370dp"
+            android:layout_height="45dp"
+            android:onClick="@{()-> clickListener.onClick(recipe)}"
+            android:padding="5dp"
+            android:text="@{recipe.name}"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="3dp" />
+
+        <ImageButton
+            android:id="@+id/deleteRecipe"
+            android:layout_width="21dp"
+            android:layout_height="35dp"
+            android:backgroundTint="@color/white"
+            android:onClick="@{()-> recipeViewModel.delete(recipe)}"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            app:layout_constraintVertical_bias="0.533"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

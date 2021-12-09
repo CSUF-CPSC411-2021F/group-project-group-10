@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "250114445821",
+    "project_id": "cookmunity-a823d",
+    "storage_bucket": "cookmunity-a823d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250114445821:android:028d4dadb966a228d3c994",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250114445821-a09ih2c75npek5859057du3bcqmoiq13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "75f1833f7ab207d002666c1e7dfe39d123e22407"
+          }
+        },
+        {
+          "client_id": "250114445821-ho4vrpia25c4obpe2j6m68tvngu8nlgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Eku__NGAffkv64-3GN9eUn07TVszsMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250114445821-ho4vrpia25c4obpe2j6m68tvngu8nlgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

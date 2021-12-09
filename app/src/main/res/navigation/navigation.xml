@@ -3,21 +3,120 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
+    app:startDestination="@id/openingFragment">
+
+    <fragment
+        android:id="@+id/openingFragment"
+        android:name="com.example.myapplication.OpeningFragment"
+        android:label="Cookmunity"
+        tools:layout="@layout/fragment_opening" >
+        <action
+            android:id="@+id/action_openingFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.myapplication.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_login_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.myapplication.RegisterFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_setDisplayNameFragment"
+            app:destination="@id/setDisplayNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.myapplication.MenuFragment"
+        android:label="Menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_menuFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_AIFragment"
+            app:destination="@id/AIFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_recipeListFragment"
+            app:destination="@id/recipeListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_groceryListFragment"
+            app:destination="@id/groceryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setDisplayNameFragment"
+        android:name="com.example.myapplication.SetDisplayNameFragment"
+        android:label="Set Moniker"
+        tools:layout="@layout/fragment_set_display_name" >
+        <action
+            android:id="@+id/action_setDisplayNameFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_setDisplayNameFragment"
+            app:destination="@id/setDisplayNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AIFragment"
+        android:name="com.example.myapplication.AIFragment"
+        android:label="Recipe Bot"
+        tools:layout="@layout/fragment_a_i" />
+
+    <fragment
+        android:id="@+id/recipeListFragment"
+        android:name="com.example.myapplication.RecipeListFragment"
+        android:label="Manage Recipes"
+        android:backgroundTint="@color/hallow">
+        <action
+            android:id="@+id/action_recipeListFragment_to_recipeItemFragment"
+            app:destination="@id/recipeItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeItemFragment"
+        android:name="com.example.myapplication.recipeItem.RecipeItemFragment"
+        android:label="Recipe Information"
+        android:backgroundTint="@color/hallow">
+        <argument
+            android:name="recipeId"
+            app:argType="long" />
+    </fragment>
     app:startDestination="@id/groceryListFragment">
 
     <fragment
         android:id="@+id/groceryListFragment"
         android:name="com.example.myapplication.GroceryListFragment"
-        android:label="Manage Groceries">
+        android:label="Manage Groceries"
+        android:background="#FF8058"
+        >
         <action
             android:id="@+id/action_groceryListFragment_to_groceryItemFragment"
-            app:destination="@id/GroceryItemFragment" />
+            app:destination="@id/groceryItemFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/GroceryItemFragment"
+        android:id="@+id/groceryItemFragment"
         android:name="com.example.myapplication.groceryItem.GroceryItemFragment"
-        android:label="Item Information">
+        android:label="Item Information"
+        android:background = "@drawable/hallow2whitegradient"
+        >
         <argument
             android:name="groceryId"
             app:argType="long" />

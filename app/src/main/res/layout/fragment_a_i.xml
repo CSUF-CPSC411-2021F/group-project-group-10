@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AIFragment">
+
+    <ImageView
+        android:id="@+id/robot_box"
+        android:background="@drawable/image_border"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="550dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ai_pic"
+        android:onClick="submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/ai_circle_border"
+        android:src="@drawable/botty"
+        app:layout_constraintEnd_toEndOf="@id/robot_box"
+        app:layout_constraintStart_toStartOf="@id/robot_box"
+        app:layout_constraintTop_toTopOf="@id/robot_box"
+        />
+
+    <EditText
+        android:id="@+id/ingredient1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="First Ingredient"
+        android:hint="First Ingredient"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:background="@drawable/true_text_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/ingredient2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints="Second Ingredient"
+        android:hint="Second Ingredient"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:background="@drawable/true_text_border"
+        app:layout_constraintTop_toBottomOf="@id/ingredient1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/ingredient3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints="Third Ingredient"
+        android:hint="Third Ingredient"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:background="@drawable/true_text_border"
+        app:layout_constraintTop_toBottomOf="@id/ingredient2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/recipe_collector"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/true_text_border"
+        android:text="*Recipe Placement*"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textColor="@color/hallow"
+        android:fontFamily="@font/lobster"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ingredient3" />
+
+    <ImageView
+        android:id="@+id/info"
+        android:onClick="receiveinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipe_collector"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
