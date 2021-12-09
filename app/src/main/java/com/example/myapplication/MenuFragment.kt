@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +29,12 @@ class MenuFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentMenuBinding.inflate(layoutInflater)
+
+        // Click logic for store locator via Google Maps
+        binding.storeLocator.setOnClickListener{view: View ->
+            openMap(view)
+        }
+
 
         // Click logic for profile navigation.
         binding.profile.setOnClickListener { view: View ->
@@ -67,5 +75,13 @@ class MenuFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun openMap(view: View){
+        val gmmIntentUri =
+            Uri.parse("geo:0,0?q=markets")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        startActivity(mapIntent)
     }
 }
